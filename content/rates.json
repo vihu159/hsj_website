@@ -1,0 +1,21 @@
+{
+  "gold24k": 17400,
+  "gold22k": 15945,
+  "gold18k": 13049,
+  "gold14k": 10178,
+  "silver": 300,
+  "diamondMakingRupees": 4950,
+  "goldMakingByCode": {
+    "AA": 15,
+    "BB": 21,
+    "CC": 24,
+    "DD": 28,
+    "EE": 30,
+    "FF": 33,
+    "GG": 36,
+    "HH": 39,
+    "II": 52
+  },
+  "silverMakingRupees": 45,
+  "gstPercent": 3
+}

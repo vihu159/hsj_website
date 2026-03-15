@@ -1,0 +1,72 @@
+{
+  "slug": "maharani",
+  "title": "Maharani",
+  "description": "",
+  "coverImage": "/images/collections/HSJ_10thAUG25_Shot01617-1771184838824.jpg",
+  "status": "live",
+  "pieces": [
+    {
+      "id": "p-1771830958743-0",
+      "name": "HSJ_10thAUG25_Shot01634",
+      "description": "",
+      "image": "/images/collections/HSJ_10thAUG25_Shot01634-1771830940450.jpg",
+      "status": "live"
+    },
+    {
+      "id": "p-1771830958744-1",
+      "name": "HSJ_10thAUG25_Shot01617",
+      "description": "",
+      "image": "/images/collections/HSJ_10thAUG25_Shot01617-1771830940573.jpg",
+      "status": "live"
+    },
+    {
+      "id": "p-1771830958745-2",
+      "name": "HSJ_10thAUG25_Shot01458",
+      "description": "",
+      "image": "/images/collections/HSJ_10thAUG25_Shot01458-1771830940691.jpg",
+      "status": "live"
+    },
+    {
+      "id": "p-1771830958745-3",
+      "name": "HSJ_10thAUG25_Shot01388",
+      "description": "",
+      "image": "/images/collections/HSJ_10thAUG25_Shot01388-1771830940843.jpg",
+      "status": "live"
+    },
+    {
+      "id": "p-1771830958747-6",
+      "name": "HSJ_10thAUG25_Shot01055",
+      "description": "",
+      "image": "/images/collections/HSJ_10thAUG25_Shot01055-1771830941260.jpg",
+      "status": "live"
+    },
+    {
+      "id": "p-1771830958747-7",
+      "name": "HSJ_10thAUG25_Shot0932",
+      "description": "",
+      "image": "/images/collections/HSJ_10thAUG25_Shot0932-1771830941378.jpg",
+      "status": "live"
+    },
+    {
+      "id": "p-1771830958748-8",
+      "name": "HSJ_10thAUG25_Shot0661",
+      "description": "",
+      "image": "/images/collections/HSJ_10thAUG25_Shot0661-1771830941513.jpg",
+      "status": "live"
+    },
+    {
+      "id": "p-1771830958748-9",
+      "name": "HSJ_10thAUG25_Shot0293",
+      "description": "",
+      "image": "/images/collections/HSJ_10thAUG25_Shot0293-1771830941663.jpg",
+      "status": "live"
+    },
+    {
+      "id": "p-1771830958749-10",
+      "name": "HSJ_10thAUG25_Shot0202",
+      "description": "",
+      "image": "/images/collections/HSJ_10thAUG25_Shot0202-1771830941803.jpg",
+      "status": "live"
+    }
+  ]
+}

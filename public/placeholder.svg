@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="600" viewBox="0 0 800 600" fill="none">
+  <rect width="800" height="600" fill="#f5f0e6"/>
+  <rect x="200" y="150" width="400" height="300" rx="8" stroke="#c9a962" stroke-width="2" fill="none"/>
+  <text x="400" y="320" font-family="Georgia, serif" font-size="24" fill="#1a1a1a" text-anchor="middle">HSJ</text>
+  <text x="400" y="350" font-family="sans-serif" font-size="14" fill="#1a1a1a" text-anchor="middle" opacity="0.7">Placeholder</text>
+</svg>

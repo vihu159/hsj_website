@@ -1,0 +1,58 @@
+{
+  "slug": "bridal",
+  "title": "The Bridal Edit",
+  "description": "",
+  "coverImage": "/images/collections/SHOT-10-0707-1771831045936.jpg",
+  "status": "live",
+  "pieces": [
+    {
+      "id": "p-1771831081812-0",
+      "name": "SHOT 12 0905",
+      "description": "",
+      "image": "/images/collections/SHOT-12-0905-1771831067490.jpg",
+      "status": "live"
+    },
+    {
+      "id": "p-1771831081813-1",
+      "name": "SHOT 12 0854",
+      "description": "",
+      "image": "/images/collections/SHOT-12-0854-1771831067610.jpg",
+      "status": "live"
+    },
+    {
+      "id": "p-1771831081813-2",
+      "name": "SHOT 11 0792",
+      "description": "",
+      "image": "/images/collections/SHOT-11-0792-1771831067732.jpg",
+      "status": "live"
+    },
+    {
+      "id": "p-1771831081814-3",
+      "name": "SHOT 09 0640",
+      "description": "",
+      "image": "/images/collections/SHOT-09-0640-1771831067835.jpg",
+      "status": "live"
+    },
+    {
+      "id": "p-1771831081814-4",
+      "name": "SHOT 08 0600",
+      "description": "",
+      "image": "/images/collections/SHOT-08-0600-1771831068078.jpg",
+      "status": "live"
+    },
+    {
+      "id": "p-1771831081815-5",
+      "name": "SHOT 10 0707",
+      "description": "",
+      "image": "/images/collections/SHOT-10-0707-1771831068196.jpg",
+      "status": "live"
+    },
+    {
+      "id": "p-1771831081815-6",
+      "name": "SHOT 09 0680",
+      "description": "",
+      "image": "/images/collections/SHOT-09-0680-1771831068319.jpg",
+      "status": "live"
+    }
+  ]
+}

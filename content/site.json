@@ -1,0 +1,103 @@
+{
+  "brandName": "HSJ",
+  "fullName": "Harsahaimal Shiamlal Jewellers",
+  "tagline": "Timeless craftsmanship. Exceptional jewellery in the heart of Lucknow.",
+  "logo": "/images/site/logo-1771148958622.png",
+  "heroLogo": "/images/site/logo-2-1771161321769.png",
+  "nav": [
+    {
+      "href": "/",
+      "label": "Home"
+    },
+    {
+      "href": "/catalogs",
+      "label": "Catalog"
+    },
+    {
+      "href": "/collections",
+      "label": "Collections"
+    },
+    {
+      "href": "/stores",
+      "label": "Our Stores"
+    },
+    {
+      "href": "/about",
+      "label": "About"
+    },
+    {
+      "href": "/contact",
+      "label": "Contact"
+    }
+  ],
+  "homepage": {
+    "heroTitle": "HSJ",
+    "heroSubtitle": "Harsahaimal Shiamlal Jewellers",
+    "heroLine1": "Couture Jewellery",
+    "heroLine2": "Timeless craftsmanship. Exceptional creations.",
+    "ctaPrimary": "Shop the collections",
+    "ctaSecondary": "Visit our stores",
+    "collectionsHeading": "Shop the collections",
+    "collectionsSub": "From heritage to contemporary — our catalogue of fine jewellery.",
+    "collectionsLink": "View all collections",
+    "photoshootsHeading": "Our creations in focus",
+    "photoshootsSub": "Editorial and campaign imagery from our photoshoots.",
+    "photoshootsLink": "View all photoshoots",
+    "storesHeading": "Our stores in Lucknow",
+    "storesSub": "Visit us at our two locations. We look forward to welcoming you.",
+    "storesLink": "View store details and hours",
+    "heritageTitle": "A legacy of excellence",
+    "heritageBody": "Since 1890, Harsahaimal Shiamlal Jewellers has crafted exceptional pieces for discerning clients in Lucknow and beyond. Our heritage combines traditional artistry with contemporary sensibilities."
+  },
+  "footerCopy": "Official Jewellers to Shri Ram Lalla.",
+  "footerCopyright": "Harsahaimal Shiamlal Jewellers. All rights reserved.",
+  "stores": [
+    {
+      "id": "store-1",
+      "name": "HSJ",
+      "address": "Gomti Nagar, Lucknow, Uttar Pradesh, 226010",
+      "mapUrl": "https://maps.app.goo.gl/oBAVgLLJyuMEwLDv8",
+      "hours": "Mon–Sat: 11:00 AM – 8:30 PM",
+      "phone": "+91 8057400790"
+    },
+    {
+      "id": "store-2",
+      "name": "HSJ",
+      "address": "Phoenix Palassio Mall, Gomti Nagar Extension, Lucknow, Uttar Pradesh",
+      "mapUrl": "https://maps.app.goo.gl/vNJ1z3qkWe7itBgY6",
+      "hours": "Mon–Sat: 11:00 AM – 9:00 PM",
+      "phone": "+91 8057400790"
+    }
+  ],
+  "contact": {
+    "email": "contact@hsjjewellers.com",
+    "phone": "+91 7991565692"
+  },
+  "social": {
+    "instagram": "https://www.instagram.com/hsj_jewellery?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==",
+    "pinterest": "https://pin.it/1SXTx7s0t",
+    "x": "https://x.com/hsj_jewellers"
+  },
+  "theme": {
+    "background": "#faf8f5",
+    "backgroundAlt": "#f5f0e6",
+    "surface": "#1a1a1a",
+    "primary": "#bea05d",
+    "primaryLight": "#b9ac88",
+    "text": "#0a0a0a",
+    "logoWidth": 150,
+    "logoHeight": 120,
+    "headingScale": 1,
+    "heroSubtitle": "#ffffff",
+    "heroSubtitleSize": 35,
+    "heroTitleSize": 60,
+    "fontHeading": "Cormorant Garamond",
+    "heroLogoWidth": 170,
+    "heroLogoHeight": 100,
+    "heroLine1Size": 15,
+    "heroLine2Size": 20
+  },
+  "about": {
+    "image": "/images/site/a-6-1772011304674.jpg"
+  }
+}

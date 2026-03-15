@@ -1,0 +1,198 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ===== COUTURE DESIGN TOKENS ===== */
+:root {
+  /* Fonts */
+  --font-cormorant: "Cormorant Garamond", Georgia, serif;
+  --font-outfit: "Outfit", system-ui, sans-serif;
+
+  /* Brand colours */
+  --color-brand-black: #0a0a0a;
+  --color-brand-charcoal: #1a1a1a;
+  --color-brand-gold: #c9a962;
+  --color-brand-gold-light: #e5d4a8;
+  --color-brand-cream: #f5f0e6;
+  --color-brand-ivory: #faf8f5;
+
+  /* Motion tokens — slow, precise, luxury (150 / 250 / 400ms) */
+  --motion-duration-fast: 150ms;
+  --motion-duration-normal: 250ms;
+  --motion-duration-slow: 400ms;
+  --motion-duration-slower: 600ms;
+  --motion-ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --motion-ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+
+  /* Header floating pill */
+  --header-pill-blur: 12px;
+  --header-pill-bg: rgba(250, 248, 245, 0.85);
+  --header-pill-border: rgba(10, 10, 10, 0.06);
+  --header-pill-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
+  --header-pill-radius: 9999px;
+
+  /* Type scale */
+  --text-xs: 0.75rem;
+  --text-sm: 0.8125rem;
+  --text-base: 1rem;
+  --text-lg: 1.125rem;
+  --text-xl: 1.25rem;
+  --text-2xl: 1.5rem;
+  --text-3xl: 1.875rem;
+  --text-4xl: 2.25rem;
+  --text-5xl: 3rem;
+  --text-6xl: 3.75rem;
+  --text-7xl: 4.5rem;
+
+  /* Spacing */
+  --space-section: clamp(5rem, 12vw, 8rem);
+  --space-block: clamp(2rem, 4vw, 3rem);
+}
+
+/* Respect reduced motion — disable durations and scroll-driven effects */
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --motion-duration-fast: 0ms;
+    --motion-duration-normal: 0ms;
+    --motion-duration-slow: 0ms;
+    --motion-duration-slower: 0ms;
+  }
+}
+
+/* Header state classes (used by Header.tsx) */
+.header-merged {
+  background-color: transparent;
+  border-color: transparent;
+  box-shadow: none;
+}
+.header-floating {
+  background: var(--header-pill-bg);
+  backdrop-filter: blur(var(--header-pill-blur));
+  -webkit-backdrop-filter: blur(var(--header-pill-blur));
+  border: 1px solid var(--header-pill-border);
+  border-radius: var(--header-pill-radius);
+  box-shadow: var(--header-pill-shadow);
+}
+@media (prefers-reduced-motion: reduce) {
+  .header-floating {
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+  }
+}
+
+body {
+  @apply bg-brand-ivory text-brand-black font-sans antialiased;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+body {
+  font-size: var(--font-size-base, 1rem);
+}
+/* Theme area defaults (ThemeInjector overrides when set in admin) */
+:root {
+  --color-hero-bg: #1a1a1a;
+  --color-hero-text: #faf8f5;
+  --color-hero-subtitle: #e5d4a8;
+  --color-button-primary: #c9a962;
+  --color-button-secondary: #c9a962;
+  --color-nav-bg: #faf8f5;
+  --color-nav-text: #0a0a0a;
+  --color-footer-bg: #0a0a0a;
+  --color-footer-text: #f5f0e6;
+  --color-heading: #0a0a0a;
+  --color-link: #c9a962;
+  --logo-width: 120px;
+  --logo-height: 40px;
+  --hero-logo-width: auto;
+  --hero-logo-height: auto;
+  --header-font-size: 1.25rem;
+  --hero-title-size: clamp(2.5rem, 8vw, 4.5rem);
+  --hero-subtitle-size: 1.25rem;
+  --hero-line1-size: 0.75rem;
+  --hero-line2-size: 1rem;
+  --hero-button-font-size: 0.875rem;
+}
+
+/* Focus visible for accessibility */
+*:focus-visible {
+  @apply outline-2 outline-offset-2 outline-brand-gold;
+}
+
+/* Infinite scroll: content is repeated 4× so 25% = one full set; loop is seamless and continuous */
+@keyframes scrollLeft {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-25%);
+  }
+}
+
+@keyframes scrollRight {
+  0% {
+    transform: translateX(-25%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .animate-in-view {
+    @apply opacity-0 translate-y-4;
+  }
+  .animate-in-view.visible {
+    @apply opacity-100 translate-y-0;
+    transition:
+      opacity var(--motion-duration-slow) var(--motion-ease-out),
+      transform var(--motion-duration-slow) var(--motion-ease-out);
+  }
+
+  .animate-scroll-left {
+    animation: scrollLeft 80s linear infinite;
+    will-change: transform;
+  }
+  .animate-scroll-right {
+    animation: scrollRight 80s linear infinite;
+    will-change: transform;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .animate-scroll-left,
+    .animate-scroll-right {
+      animation: none;
+    }
+  }
+
+  .scrollbar-none {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .scrollbar-none::-webkit-scrollbar {
+    display: none;
+  }
+}
