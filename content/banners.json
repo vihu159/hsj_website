@@ -1,18 +1,11 @@
 {
   "hero": {
-    "type": "video",
-    "image": "/images/collections/SHOT-12-0854-1771183672916.jpg",
-    "mobileImage": "/images/collections/SHOT-08-0606-1771183779040.jpg",
-    "video": "/videos/WhatsApp-Video-2021-09-04-at-8-00-15-PM-1771184058386.mp4",
-    "posterSrc": "/images/collections/SHOT-12-0854-1771184150858.jpg",
-    "carouselImages": [
-      "/images/collections/HSJ_10thAUG25_Shot01617-1771931558366.jpg",
-      "/images/collections/SHOT-11-0792-1771931573636.jpg",
-      "/images/collections/SHOT-10-0707-1771931577159.jpg",
-      "/images/collections/SHOT-09-0640-1771931582972.jpg",
-      "/images/collections/SHOT-12-0854-1771931593434.jpg",
-      "/images/collections/a-6-1771931745504.jpg"
-    ]
+    "type": "image",
+    "image": "",
+    "mobileImage": "",
+    "video": "",
+    "posterSrc": "",
+    "carouselImages": []
   },
   "sections": []
 }

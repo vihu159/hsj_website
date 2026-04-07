@@ -40,8 +40,9 @@ next-env.d.ts
 # documents
 *.pdf
 
-# uploaded media — too large for GitHub (5GB+); deploy separately or use a CDN
+# uploaded media — not committed to git; upload via admin panel after deploy
 /public/images/collections/
 /public/images/photoshoots/
 /public/images/bulk/
+/public/images/site/
 /public/videos/

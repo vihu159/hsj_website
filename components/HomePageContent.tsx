@@ -146,20 +146,34 @@ export default function HomePageContent({
         </div>
       </section>
 
-      {/* Heritage — typographic monument */}
+      {/* Heritage — typographic monument or image */}
       {(hp.heritageTitle || hp.heritageBody) && (
         <ScrollReveal>
           <section className="border-t border-brand-charcoal/10 py-24 md:py-32">
             <div className="mx-auto max-w-7xl px-6 md:px-10">
               <div className="grid gap-12 lg:grid-cols-[1fr_2px_2fr] lg:items-center lg:gap-16">
-                <div className="text-center lg:text-right">
-                  <p className="font-serif text-[5rem] font-semibold leading-none tracking-tight text-brand-black/10 md:text-[7rem] lg:text-[9rem]">
-                    1890
-                  </p>
-                  <p className="mt-2 text-[10px] font-medium uppercase tracking-[0.25em] text-brand-gold">
-                    Est. in Lucknow
-                  </p>
-                </div>
+                {hp.heritageMedia ? (
+                  <div className="flex justify-center lg:justify-end">
+                    <div className="relative aspect-[3/4] w-full max-w-[280px] overflow-hidden">
+                      <Image
+                        src={hp.heritageMedia}
+                        alt="HSJ Heritage"
+                        fill
+                        className="object-cover"
+                        sizes="280px"
+                      />
+                    </div>
+                  </div>
+                ) : (
+                  <div className="text-center lg:text-right">
+                    <p className="font-serif text-[5rem] font-semibold leading-none tracking-tight text-brand-black/10 md:text-[7rem] lg:text-[9rem]">
+                      1890
+                    </p>
+                    <p className="mt-2 text-[10px] font-medium uppercase tracking-[0.25em] text-brand-gold">
+                      Est. in Lucknow
+                    </p>
+                  </div>
+                )}
                 <div className="hidden lg:block h-32 w-px bg-brand-charcoal/15" />
                 <div>
                   <h2 className="font-serif text-3xl font-semibold tracking-wide text-brand-black md:text-4xl">
@@ -260,13 +274,10 @@ export default function HomePageContent({
                   By appointment
                 </p>
                 <h2 className="mt-3 font-serif text-3xl font-semibold tracking-wide text-brand-black md:text-4xl">
-                  Every piece begins<br />with a conversation
+                  {hp.consultationTitle ?? "Every piece begins with a conversation"}
                 </h2>
                 <p className="mt-5 text-base leading-relaxed text-brand-charcoal/70">
-                  Our artisans are available for private consultations at both
-                  our Lucknow stores. Share what you have in mind — we&apos;ll
-                  guide you through our collections or craft something entirely
-                  your own.
+                  {hp.consultationBody ?? "Our artisans are available for private consultations at both our Lucknow stores. Share what you have in mind — we\u2019ll guide you through our collections or craft something entirely your own."}
                 </p>
               </div>
               <div className="flex flex-col gap-4 lg:items-end">
@@ -277,7 +288,7 @@ export default function HomePageContent({
                   Book a Private Consultation
                 </Link>
                 <a
-                  href="https://wa.me/917991565692"
+                  href={`https://wa.me/${siteData.contact.phone.replace(/\D/g, "")}`}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-block rounded-sm border border-brand-charcoal/25 px-8 py-4 text-[11px] font-medium uppercase tracking-[0.2em] text-brand-charcoal/70 transition-colors duration-200 hover:border-brand-gold hover:text-brand-gold"

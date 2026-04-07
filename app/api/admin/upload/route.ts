@@ -2,6 +2,10 @@ import { NextRequest } from "next/server";
 import { isAdmin } from "@/lib/admin-auth";
 import fs from "fs";
 import path from "path";
+import sharp from "sharp";
+
+// Max dimension (width or height) for processed site images — preserves aspect ratio.
+const SITE_IMAGE_MAX_PX = 1400;
 
 async function requireAdmin() {
   if (!(await isAdmin())) {
@@ -42,14 +46,41 @@ export async function POST(request: NextRequest) {
     fs.mkdirSync(dir, { recursive: true });
   }
 
-  const safeExt = isVideo ? ext : (ext || ".jpg");
   const base = path.basename(file.name, path.extname(file.name)).replace(/[^a-z0-9-_]/gi, "-");
-  const filename = `${base}-${Date.now()}${safeExt}`;
+  const bytes = await file.arrayBuffer();
+  const buf = Buffer.from(bytes);
+
+  if (isVideo) {
+    const safeExt = ext;
+    const filename = `${base}-${Date.now()}${safeExt}`;
+    const filePath = path.join(dir, filename);
+    fs.writeFileSync(filePath, buf);
+    return Response.json({ url: `/videos/${filename}` });
+  }
+
+  // Process images with sharp: auto-orient (fix EXIF rotation) + resize to fit within max dimension.
+  // PNGs keep PNG format (preserves transparency for logos). Everything else → JPEG.
+  const isPng = ext === ".png";
+  const outExt = isPng ? ".png" : ".jpg";
+  const filename = `${base}-${Date.now()}${outExt}`;
   const filePath = path.join(dir, filename);
 
-  const bytes = await file.arrayBuffer();
-  fs.writeFileSync(filePath, Buffer.from(bytes));
+  try {
+    let pipeline = sharp(buf)
+      .rotate() // auto-orient from EXIF
+      .resize(SITE_IMAGE_MAX_PX, SITE_IMAGE_MAX_PX, { fit: "inside", withoutEnlargement: true });
 
-  const url = isVideo ? `/videos/${filename}` : `/images/${type}/${filename}`;
-  return Response.json({ url });
+    if (isPng) {
+      pipeline = pipeline.png({ compressionLevel: 8 });
+    } else {
+      pipeline = pipeline.jpeg({ quality: 85, mozjpeg: true });
+    }
+
+    await pipeline.toFile(filePath);
+  } catch {
+    // If sharp fails (e.g. SVG or unusual format), fall back to saving the raw bytes.
+    fs.writeFileSync(filePath, buf);
+  }
+
+  return Response.json({ url: `/images/${type}/${filename}` });
 }

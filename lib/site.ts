@@ -36,6 +36,9 @@ export type HomepageCopy = {
   heritageTitle?: string;
   heritageBody?: string;
   heritageMedia?: string;
+  /** Optional Consultation CTA section */
+  consultationTitle?: string;
+  consultationBody?: string;
 };
 
 export type SocialLinks = {

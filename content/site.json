@@ -2,8 +2,8 @@
   "brandName": "HSJ",
   "fullName": "Harsahaimal Shiamlal Jewellers",
   "tagline": "Timeless craftsmanship. Exceptional jewellery in the heart of Lucknow.",
-  "logo": "/images/site/logo-1771148958622.png",
-  "heroLogo": "/images/site/logo-2-1771161321769.png",
+  "logo": "",
+  "heroLogo": "",
   "nav": [
     {
       "href": "/",
@@ -46,8 +46,11 @@
     "storesHeading": "Our stores in Lucknow",
     "storesSub": "Visit us at our two locations. We look forward to welcoming you.",
     "storesLink": "View store details and hours",
+    "consultationTitle": "Every piece begins with a conversation",
+    "consultationBody": "Our artisans are available for private consultations at both our Lucknow stores. Share what you have in mind — we'll guide you through our collections or craft something entirely your own.",
     "heritageTitle": "A legacy of excellence",
-    "heritageBody": "Since 1890, Harsahaimal Shiamlal Jewellers has crafted exceptional pieces for discerning clients in Lucknow and beyond. Our heritage combines traditional artistry with contemporary sensibilities."
+    "heritageBody": "Since 1893, Harsahaimal Shiamlal Jewellers has crafted exceptional pieces for discerning clients in Lucknow and beyond. Our heritage combines traditional artistry with contemporary sensibilities.",
+    "heritageMedia": ""
   },
   "footerCopy": "Official Jewellers to Shri Ram Lalla.",
   "footerCopyright": "Harsahaimal Shiamlal Jewellers. All rights reserved.",
@@ -74,9 +77,13 @@
     "phone": "+91 7991565692"
   },
   "social": {
-    "instagram": "https://www.instagram.com/hsj_jewellery?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==",
+    "instagram": "https://www.instagram.com/hsj_lucknow?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==",
     "pinterest": "https://pin.it/1SXTx7s0t",
     "x": "https://x.com/hsj_jewellers"
+  },
+  "about": {
+    "image": "",
+    "description": "For generations, Harsahaimal Shiamlal Jewellers has been synonymous with exceptional craftsmanship and timeless design in North India. Our name carries a legacy of trust and artistry.\nFrom traditional kundan and jadau to contemporary pieces, every creation is crafted with care and an unwavering commitment to quality. We take pride in offering jewellery that honours heritage while embracing the preferences of today's wearer.\nWith two stores in Lucknow — in Gomti Nagar and Phoenix Palassio — we invite you to discover our collections and experience the HSJ difference. Visit us or get in touch; we would be honoured to assist you."
   },
   "theme": {
     "background": "#faf8f5",
@@ -96,8 +103,5 @@
     "heroLogoHeight": 100,
     "heroLine1Size": 15,
     "heroLine2Size": 20
-  },
-  "about": {
-    "image": "/images/site/a-6-1772011304674.jpg"
   }
 }
