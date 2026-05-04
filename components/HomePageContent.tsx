@@ -109,7 +109,7 @@ export default function HomePageContent({
                 <span className="inline-flex items-baseline justify-center gap-[0.22em] leading-none">
                   <span className="inline-block" style={{ lineHeight: 1 }}>H</span>
                   <span className="inline-block" style={{ lineHeight: 1 }}>S</span>
-                  <span className="inline-block" style={{ lineHeight: 1, transform: "translateY(0.06em)" }}>J</span>
+                  <span className="inline-block" style={{ lineHeight: 1 }}>J</span>
                 </span>
               ) : (
                 hp.heroTitle
