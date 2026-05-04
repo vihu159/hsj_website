@@ -105,15 +105,7 @@ export default function HomePageContent({
               className="font-serif font-semibold tracking-[0.25em]"
               style={{ color: "var(--color-hero-text)", fontSize: "var(--hero-title-size)" }}
             >
-              {hp.heroTitle === "HSJ" ? (
-                <span className="inline-flex items-baseline justify-center gap-[0.22em] leading-none">
-                  <span className="inline-block" style={{ lineHeight: 1 }}>H</span>
-                  <span className="inline-block" style={{ lineHeight: 1 }}>S</span>
-                  <span className="inline-block" style={{ lineHeight: 1 }}>J</span>
-                </span>
-              ) : (
-                hp.heroTitle
-              )}
+              {hp.heroTitle}
             </h1>
           )}
           <p
