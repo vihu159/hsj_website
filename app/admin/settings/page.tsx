@@ -128,7 +128,7 @@ export default function SettingsAdminPage() {
       <div className="space-y-3">
 
         {/* Brand Identity */}
-        <Accordion id="brand" title="Brand Identity" subtitle="Brand name, full name, tagline, contact details" defaultOpen>
+        <Accordion title="Brand Identity" subtitle="Brand name, full name, tagline, contact details" defaultOpen>
           <div className="space-y-4">
             <div className="grid gap-4 sm:grid-cols-2">
               <Field label="Brand name (short)" hint="Used in the header when no logo is set">

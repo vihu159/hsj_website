@@ -1,6 +1,6 @@
 import { NextRequest } from "next/server";
 import { isAdmin } from "@/lib/admin-auth";
-import { updateCatalogProduct } from "@/lib/catalogs";
+import { updateCatalogProduct, removeCatalogProduct } from "@/lib/catalogs";
 
 async function requireAdmin() {
   if (!(await isAdmin())) {

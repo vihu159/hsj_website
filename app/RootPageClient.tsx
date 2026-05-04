@@ -6,15 +6,17 @@ import HomePageContent from "@/components/HomePageContent";
 import type { PhotoshootSummary } from "@/lib/photoshoots";
 import type { SiteData, Store } from "@/lib/site";
 import type { BannersData } from "@/lib/banners";
+import type { CollectionSummary } from "@/lib/collections";
 
 type Props = {
   siteData: SiteData;
   banners: BannersData;
   photoshoots: PhotoshootSummary[];
+  collections: CollectionSummary[];
   stores: Store[];
 };
 
-export default function RootPageClient({ siteData, banners, photoshoots, stores }: Props) {
+export default function RootPageClient({ siteData, banners, photoshoots, collections, stores }: Props) {
   const searchParams = useSearchParams();
   const viewSite = searchParams.get("view") === "site";
   const adminFirst = process.env.NEXT_PUBLIC_ADMIN_FIRST === "true";
@@ -28,6 +30,7 @@ export default function RootPageClient({ siteData, banners, photoshoots, stores 
       siteData={siteData}
       banners={banners}
       photoshoots={photoshoots}
+      collections={collections}
       stores={stores}
     />
   );

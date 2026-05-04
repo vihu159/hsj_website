@@ -209,13 +209,13 @@ export default function NavOverlay({
 
           {filtered.length > 0 && searchQuery.trim() ? (
             /* Search results mode */
-            <ul className="space-y-2" role="list">
+            <ul className="space-y-1" role="list">
               {filtered.slice(0, 20).map((item) => (
                 <li key={item.id}>
                   <Link
                     href={item.href}
                     onClick={onClose}
-                    className="block py-3 font-serif text-xl text-brand-black transition-colors hover:text-brand-gold sm:text-2xl"
+                    className="block py-2.5 font-serif text-xl text-brand-black transition-colors hover:text-brand-gold"
                   >
                     {item.title}
                   </Link>
@@ -223,13 +223,9 @@ export default function NavOverlay({
               ))}
             </ul>
           ) : (
-            /* Full menu layout — one vertical column, 15% smaller font */
-            <nav
-              aria-label="Main navigation"
-              className="space-y-1"
-              style={{ fontSize: "85%" }}
-            >
-              <ul className="space-y-4" role="list">
+            /* Full menu layout */
+            <nav aria-label="Main navigation">
+              <ul className="space-y-3" role="list">
                 {catalogMenuGroups.length > 0 && (
                   <li>
                     <button
@@ -238,7 +234,7 @@ export default function NavOverlay({
                         setCatalogOpen((o) => !o);
                         if (catalogOpen) setExpandedCategory(null);
                       }}
-                      className="flex w-full items-center justify-between font-serif text-2xl font-medium tracking-wide text-brand-black transition-colors hover:text-brand-gold sm:text-3xl"
+                      className="flex w-full items-center justify-between py-1 font-serif text-2xl font-medium tracking-wide text-brand-black transition-colors hover:text-brand-gold"
                       aria-expanded={catalogOpen}
                     >
                       Catalog
@@ -246,13 +242,13 @@ export default function NavOverlay({
                         className={`inline-block transition-transform ${catalogOpen ? "rotate-180" : ""}`}
                         aria-hidden
                       >
-                        <svg className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                        <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M19 9l-7 7-7-7" />
                         </svg>
                       </span>
                     </button>
                     {catalogOpen && (
-                      <ul className="mt-4 space-y-2" role="list">
+                      <ul className="mt-3 space-y-1.5" role="list">
                         {catalogMenuGroups.map(({ category, catalogs }) => (
                           <li key={category}>
                             <button
@@ -260,7 +256,7 @@ export default function NavOverlay({
                               onClick={() =>
                                 setExpandedCategory((prev) => (prev === category ? null : category))
                               }
-                              className="flex w-full items-center justify-between py-2 text-left text-xs font-medium uppercase tracking-wider text-brand-gold transition-colors hover:text-brand-gold/80"
+                              className="flex w-full items-center justify-between py-1.5 text-left text-[10px] font-medium uppercase tracking-[0.2em] text-brand-gold transition-colors hover:text-brand-gold/80"
                               aria-expanded={expandedCategory === category}
                             >
                               {category}
@@ -268,19 +264,19 @@ export default function NavOverlay({
                                 className={`inline-block transition-transform ${expandedCategory === category ? "rotate-180" : ""}`}
                                 aria-hidden
                               >
-                                <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                                <svg className="h-3.5 w-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M19 9l-7 7-7-7" />
                                 </svg>
                               </span>
                             </button>
                             {expandedCategory === category && (
-                              <ul className="mt-1 space-y-0.5 border-l-2 border-brand-gold/20 pl-4" role="list">
+                              <ul className="mt-1.5 space-y-0.5 border-l border-brand-gold/25 pl-4" role="list">
                                 {catalogs.map((c) => (
                                   <li key={c.slug}>
                                     <Link
                                       href={`/catalogs/${c.slug}`}
                                       onClick={onClose}
-                                      className="block py-2 text-sm text-brand-charcoal transition-colors hover:text-brand-gold"
+                                      className="block py-2 text-sm text-brand-charcoal/70 transition-colors hover:text-brand-gold"
                                     >
                                       {c.subcategory}
                                     </Link>
@@ -295,46 +291,87 @@ export default function NavOverlay({
                   </li>
                 )}
 
-                <li>
-                  <Link
-                    href="/photoshoots"
-                    onClick={onClose}
-                    className="block font-serif text-2xl font-medium tracking-wide text-brand-black transition-colors hover:text-brand-gold sm:text-3xl"
-                  >
-                    Photoshoots
-                  </Link>
-                </li>
-
-                <li>
-                  <Link
-                    href="/stores"
-                    onClick={onClose}
-                    className="block font-serif text-2xl font-medium tracking-wide text-brand-black transition-colors hover:text-brand-gold sm:text-3xl"
-                  >
-                    Stores
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="/about"
-                    onClick={onClose}
-                    className="block font-serif text-2xl font-medium tracking-wide text-brand-black transition-colors hover:text-brand-gold sm:text-3xl"
-                  >
-                    About
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="/contact"
-                    onClick={onClose}
-                    className="block font-serif text-2xl font-medium tracking-wide text-brand-black transition-colors hover:text-brand-gold sm:text-3xl"
-                  >
-                    Contact
-                  </Link>
-                </li>
+                {[
+                  { href: "/collections", label: "Collections" },
+                  { href: "/photoshoots", label: "Photoshoots" },
+                  { href: "/stores", label: "Stores" },
+                  { href: "/about", label: "About" },
+                  { href: "/contact", label: "Contact" },
+                ].map(({ href, label }) => (
+                  <li key={href}>
+                    <Link
+                      href={href}
+                      onClick={onClose}
+                      className="block py-1 font-serif text-2xl font-medium tracking-wide text-brand-black transition-colors hover:text-brand-gold"
+                    >
+                      {label}
+                    </Link>
+                  </li>
+                ))}
               </ul>
             </nav>
           )}
+        </div>
+      </div>
+
+      {/* Bottom bar — contact + social */}
+      <div className="shrink-0 border-t border-brand-charcoal/10 px-5 py-5 sm:px-8 lg:px-12">
+        <div className="flex flex-wrap items-center justify-between gap-4">
+          <div className="flex flex-wrap gap-5">
+            {siteData.contact?.phone && (
+              <a
+                href={`https://wa.me/${siteData.contact.phone.replace(/\D/g, "")}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-[10px] font-medium uppercase tracking-[0.18em] text-brand-charcoal/50 transition-colors hover:text-brand-gold"
+              >
+                WhatsApp
+              </a>
+            )}
+            {siteData.contact?.email && (
+              <a
+                href={`mailto:${siteData.contact.email}`}
+                className="text-[10px] font-medium uppercase tracking-[0.18em] text-brand-charcoal/50 transition-colors hover:text-brand-gold"
+              >
+                Email
+              </a>
+            )}
+          </div>
+          <div className="flex gap-4">
+            {siteData.social?.instagram && (
+              <a
+                href={siteData.social.instagram}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-[10px] font-medium uppercase tracking-[0.18em] text-brand-charcoal/40 transition-colors hover:text-brand-gold"
+                aria-label="Instagram"
+              >
+                IG
+              </a>
+            )}
+            {siteData.social?.pinterest && (
+              <a
+                href={siteData.social.pinterest}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-[10px] font-medium uppercase tracking-[0.18em] text-brand-charcoal/40 transition-colors hover:text-brand-gold"
+                aria-label="Pinterest"
+              >
+                Pin
+              </a>
+            )}
+            {siteData.social?.x && (
+              <a
+                href={siteData.social.x}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-[10px] font-medium uppercase tracking-[0.18em] text-brand-charcoal/40 transition-colors hover:text-brand-gold"
+                aria-label="X"
+              >
+                X
+              </a>
+            )}
+          </div>
         </div>
       </div>
       </div>

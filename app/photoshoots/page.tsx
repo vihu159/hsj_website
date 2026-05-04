@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { getAllPhotoshoots } from "@/lib/photoshoots";
+import Marquee from "@/components/Marquee";
 
 export const metadata = {
   title: "Photoshoots | HSJ",
@@ -14,8 +15,8 @@ export default function PhotoshootsPage() {
 
   return (
     <div>
-      {/* Page header — dark, editorial */}
-      <div className="bg-brand-black px-6 py-20 text-center">
+      {/* Page header */}
+      <div className="bg-brand-black px-6 pb-16 pt-20 text-center">
         <p className="text-[10px] font-medium uppercase tracking-[0.22em] text-brand-gold">
           Editorial
         </p>
@@ -23,10 +24,11 @@ export default function PhotoshootsPage() {
           Our Creations<br className="hidden sm:block" /> in Focus
         </h1>
         <p className="mx-auto mt-5 max-w-md text-sm leading-relaxed text-brand-ivory/50">
-          Campaign and editorial imagery — HSJ jewellery as it was meant to
-          be seen.
+          Campaign and editorial imagery — HSJ jewellery as it was meant to be seen.
         </p>
       </div>
+
+      <Marquee className="bg-brand-black border-brand-ivory/10" />
 
       <div className="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8">
 
@@ -34,7 +36,7 @@ export default function PhotoshootsPage() {
         {hero && (
           <Link
             href={`/photoshoots/${hero.slug}`}
-            className="group mb-6 block overflow-hidden"
+            className="group mb-4 block overflow-hidden"
           >
             <div className="grid lg:grid-cols-[3fr_2fr]">
               <div className="relative aspect-[4/3] overflow-hidden bg-brand-charcoal lg:aspect-auto lg:min-h-[520px]">
@@ -55,7 +57,7 @@ export default function PhotoshootsPage() {
                   {hero.title}
                 </h2>
                 {hero.caption && (
-                  <p className="mt-4 line-clamp-3 text-sm leading-relaxed text-brand-ivory/55">
+                  <p className="mt-4 line-clamp-4 text-sm leading-relaxed text-brand-ivory/55">
                     {hero.caption}
                   </p>
                 )}
@@ -67,16 +69,22 @@ export default function PhotoshootsPage() {
           </Link>
         )}
 
-        {/* Remaining shoots — 3-col grid */}
+        {/* Remaining shoots */}
         {rest.length > 0 && (
-          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {rest.map((shoot) => (
+          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            {rest.map((shoot, i) => (
               <Link
                 key={shoot.slug}
                 href={`/photoshoots/${shoot.slug}`}
-                className="group block"
+                className={`group block ${i === 0 && rest.length >= 3 ? "sm:col-span-2 lg:col-span-1" : ""}`}
               >
-                <div className="relative aspect-[3/4] overflow-hidden bg-brand-charcoal">
+                <div
+                  className={`relative overflow-hidden bg-brand-charcoal ${
+                    i === 0 && rest.length >= 3
+                      ? "aspect-[16/9] sm:aspect-[2/1] lg:aspect-[3/4]"
+                      : "aspect-[3/4]"
+                  }`}
+                >
                   <Image
                     src={shoot.coverImage}
                     alt=""

@@ -7,15 +7,18 @@ import HeroVideo from "./HeroVideo";
 import HeroCarousel from "./HeroCarousel";
 import ScrollReveal from "./ScrollReveal";
 import SnapCarousel from "./SnapCarousel";
+import Marquee from "./Marquee";
 import { normaliseHeroSlot } from "@/lib/banners-utils";
 import type { PhotoshootSummary } from "@/lib/photoshoots";
 import type { SiteData, Store } from "@/lib/site";
 import type { BannersData } from "@/lib/banners";
+import type { CollectionSummary } from "@/lib/collections";
 
 type Props = {
   siteData: SiteData;
   banners: BannersData;
   photoshoots: PhotoshootSummary[];
+  collections: CollectionSummary[];
   stores: Store[];
 };
 
@@ -26,6 +29,9 @@ const defaultCopy = {
   heroLine2: "Timeless craftsmanship. Exceptional creations.",
   ctaPrimary: "Shop the catalog",
   ctaSecondary: "Visit our stores",
+  collectionsHeading: "Shop the collections",
+  collectionsSub: "From heritage to contemporary — our catalogue of fine jewellery.",
+  collectionsLink: "View all collections",
   photoshootsHeading: "Our creations in focus",
   photoshootsSub: "Editorial and campaign imagery from our photoshoots.",
   photoshootsLink: "View all photoshoots",
@@ -38,10 +44,12 @@ export default function HomePageContent({
   siteData,
   banners,
   photoshoots,
+  collections,
   stores,
 }: Props) {
   const hp = { ...defaultCopy, ...siteData.homepage };
   const featuredPhotoshoots = photoshoots.slice(0, 3);
+  const featuredCollections = collections.slice(0, 4);
   const heroSlot = normaliseHeroSlot(banners?.hero ?? { type: "image", image: "/placeholder.svg" });
   const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
@@ -146,6 +154,9 @@ export default function HomePageContent({
         </div>
       </section>
 
+      {/* Decorative marquee */}
+      <Marquee />
+
       {/* Heritage — typographic monument or image */}
       {(hp.heritageTitle || hp.heritageBody) && (
         <ScrollReveal>
@@ -191,6 +202,60 @@ export default function HomePageContent({
                     Our story ↗
                   </Link>
                 </div>
+              </div>
+            </div>
+          </section>
+        </ScrollReveal>
+      )}
+
+      {/* Collections grid */}
+      {featuredCollections.length > 0 && (
+        <ScrollReveal>
+          <section className="border-t border-brand-charcoal/10 bg-brand-cream py-20 md:py-24">
+            <div className="mx-auto max-w-7xl px-6 md:px-10">
+              <div className="flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
+                <div>
+                  <p className="text-[10px] font-medium uppercase tracking-[0.22em] text-brand-gold">
+                    Collections
+                  </p>
+                  <h2 className="mt-2 font-serif text-3xl font-semibold tracking-wide text-brand-black md:text-4xl">
+                    {hp.collectionsHeading}
+                  </h2>
+                </div>
+                <Link
+                  href="/collections"
+                  className="text-[10px] font-medium uppercase tracking-[0.2em] text-brand-gold transition-opacity hover:opacity-70 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-gold focus-visible:ring-offset-2 md:shrink-0"
+                >
+                  {hp.collectionsLink} ↗
+                </Link>
+              </div>
+              <div className="mt-12 grid gap-4 sm:grid-cols-2">
+                {featuredCollections.map((col) => (
+                  <Link
+                    key={col.slug}
+                    href={`/collections/${col.slug}`}
+                    className="group relative block overflow-hidden"
+                  >
+                    <div className="relative aspect-[4/5] overflow-hidden bg-brand-charcoal">
+                      <Image
+                        src={col.coverImage}
+                        alt=""
+                        fill
+                        className="object-cover opacity-90 transition-all duration-700 ease-out group-hover:scale-[1.04] group-hover:opacity-100"
+                        sizes="(max-width: 640px) 100vw, 50vw"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-brand-black/70 via-brand-black/10 to-transparent" />
+                    </div>
+                    <div className="absolute bottom-0 left-0 right-0 p-7">
+                      <h3 className="font-serif text-2xl font-semibold leading-snug text-brand-ivory">
+                        {col.title}
+                      </h3>
+                      <span className="mt-2 inline-block text-[10px] font-medium uppercase tracking-[0.2em] text-brand-gold transition-opacity group-hover:opacity-70">
+                        Explore ↗
+                      </span>
+                    </div>
+                  </Link>
+                ))}
               </div>
             </div>
           </section>
@@ -277,7 +342,7 @@ export default function HomePageContent({
                   {hp.consultationTitle ?? "Every piece begins with a conversation"}
                 </h2>
                 <p className="mt-5 text-base leading-relaxed text-brand-charcoal/70">
-                  {hp.consultationBody ?? "Our artisans are available for private consultations at both our Lucknow stores. Share what you have in mind — we\u2019ll guide you through our collections or craft something entirely your own."}
+                  {hp.consultationBody ?? "Our artisans are available for private consultations at both our Lucknow stores. Share what you have in mind — we’ll guide you through our collections or craft something entirely your own."}
                 </p>
               </div>
               <div className="flex flex-col gap-4 lg:items-end">
