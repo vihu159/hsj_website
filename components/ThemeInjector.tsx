@@ -64,16 +64,20 @@ export default function ThemeInjector({ theme }: { theme: ThemeColours }) {
       root.style.setProperty("--header-font-size", `${theme.headerFontSize}px`);
     }
     if (theme.heroTitleSize != null && theme.heroTitleSize > 0) {
-      root.style.setProperty("--hero-title-size", `${theme.heroTitleSize}px`);
+      const t = theme.heroTitleSize;
+      root.style.setProperty("--hero-title-size", `clamp(${Math.round(t * 0.45)}px, ${(t / 8).toFixed(1)}vw, ${t}px)`);
     }
     if (theme.heroSubtitleSize != null && theme.heroSubtitleSize > 0) {
-      root.style.setProperty("--hero-subtitle-size", `${theme.heroSubtitleSize}px`);
+      const s = theme.heroSubtitleSize;
+      root.style.setProperty("--hero-subtitle-size", `clamp(${Math.round(s * 0.6)}px, ${(s / 8).toFixed(1)}vw, ${s}px)`);
     }
     if (theme.heroLine1Size != null && theme.heroLine1Size > 0) {
-      root.style.setProperty("--hero-line1-size", `${theme.heroLine1Size}px`);
+      const l1 = theme.heroLine1Size;
+      root.style.setProperty("--hero-line1-size", `clamp(${Math.round(l1 * 0.75)}px, ${(l1 / 8).toFixed(1)}vw, ${l1}px)`);
     }
     if (theme.heroLine2Size != null && theme.heroLine2Size > 0) {
-      root.style.setProperty("--hero-line2-size", `${theme.heroLine2Size}px`);
+      const l2 = theme.heroLine2Size;
+      root.style.setProperty("--hero-line2-size", `clamp(${Math.round(l2 * 0.75)}px, ${(l2 / 8).toFixed(1)}vw, ${l2}px)`);
     }
     if (theme.heroButtonFontSize != null && theme.heroButtonFontSize > 0) {
       root.style.setProperty("--hero-button-font-size", `${theme.heroButtonFontSize}px`);
